@@ -93,12 +93,16 @@
       .join('\n');
   });
 
-  function copyOutput() {
-    const text = result.innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      alert('Output copied to clipboard!');
-    });
-  }
+function copyOutput() {
+  const text = formattedPairs
+    .map(pair => `${pair.original}:${pair.original}`)
+    .join('\n');
+    
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Output copied to clipboard!');
+  });
+}
+
 
   function downloadCSV() {
     const now = new Date();
